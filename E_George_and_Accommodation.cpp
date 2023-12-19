@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+
+    int n;
+    cin >> n;
+    int cnt = 0;
+
+    while (n--)
+    {
+        int p, q;
+        cin >> p >> q;
+
+        if (q > p && q-p>=2)
+        {
+            cnt += 1;
+        }
+    }
+    cout << cnt;
+
+    return 0;
+}
