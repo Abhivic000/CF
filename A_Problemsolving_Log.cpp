@@ -1,5 +1,4 @@
-#include <iostream>
-#include <map>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -13,21 +12,15 @@ int main() {
         string s;
         cin >> s;
 
-        map<char, int> charCount;
-
-        for (char c : s) {
-            charCount[c]++;
-        }
-
         int cnt = 0;
         int val = 1; 
 
         
         for (char c = 'A'; c <= 'Z'; ++c) {
-            int charPosition = c - 'A' + 1;  
-            if (charCount[c] >= charPosition) {
-                cnt++;
-            }
+             
+           cnt += (count(s.begin(),s.end(),c)>=val);
+            val++;   
+            
         }
 
         cout << cnt << endl;

@@ -9,9 +9,7 @@ int main()
 
     while (t--)
     {
-        
-
-       int n,k;
+      int n,k;
    cin >> n >> k;
    for (int i = 1; i < k+1; ++i)
    {
