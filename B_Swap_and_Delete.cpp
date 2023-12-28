@@ -17,13 +17,12 @@ int main() {
             cout << 0 << endl;
         } else {
             int cost = 0;
-
             
             for (int i = 0; i < n; ++i) {
-                if (s[i] == '0' && s[(i + 1) % n] == '1') {
+                if (s[i] == '0' && s[(i+1)%n] == '1') {
                     
                     cost += 0; 
-                } else if (s[i] == '1' && s[(i + 1) % n] == '0') {
+                } else if (s[i] == '1' && s[(i+1)%n] == '0') {
                     
                     cost += 0; 
                 } else {
