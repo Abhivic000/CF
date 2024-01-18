@@ -19,33 +19,45 @@ typedef pair<int,int> pi;
 template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
-void solve() {
-    // Code here abhivic
-     int n, m;
+void solve()
+{
+    int n, m;
     cin >> n >> m;
     vi v1(n), v2(m);
-    rep(i, 0, n - 1) {
+    rep(i, 0, n - 1)
+    {
         cin >> v1[i];
     }
-    rep(i, 0, m - 1) {
+    rep(i, 0, m - 1)
+    {
         cin >> v2[i];
     }
     sort(v1.begin(), v1.end());
-    sort(v2.begin(), v2.end(), greater<int>());
-    vi ans;
-    int i = 0;
+    sort(v2.rbegin(), v2.rend()); 
+    int i = 0, j = n - 1, jj = m - 1;
+    ll ans = 0;
 
-    while (ans.size() < n) {
-        ans.push_back(abs(v2[i] - v1[i]));
-        if(n>1 && m>1 && ans.size()<n){
-        ans.push_back(abs(v1[n - i - 1] - v2[m - i - 1]));
+    while (i <= j)
+    {
+        int diff1 = abs(v2[i] - v1[i]);  
+        int diff2 = abs(v1[j] - v2[jj]);
+
+        if (diff1 > diff2)
+        {
+            ans += diff1;
+            i++;
         }
-        i++;
+        else
+        {
+            ans += diff2;
+            j--;
+            jj--;
+        }
     }
 
-    int sum = accumulate(ans.begin(), ans.end(), 0);
-    cout << sum << endl;
+    cout << ans << endl;
 }
+
 
 signed main() {
     ios_base::sync_with_stdio(false);
