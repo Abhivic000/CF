@@ -6,23 +6,24 @@ int main() {
     cin >> t;
 
     while (t--) {
-        int a, b, c;
-        cin >> a >> b >> c;
-
-        int mini = min(a, min(b, c));
-        int maxi = max(a, max(b, c));
-        int middle = a + b + c - mini - maxi;
-
-        // Check if it's possible to make all threadlets of equal length in at most three operations
-        if ((mini + middle + 1 >= maxi) || (a == b && b == c)) {
-            cout << "YES" << endl;
+        vector<int>v(3);
+        for(int i=0; i<3; i++){
+            cin>>v[i];
         }
-        else if ((mini + middle + 1 >= maxi) || (a == b && b == c)) {
-            cout << "YES" << endl;
-        } 
-        else {
-            cout << "NO" << endl;
+        sort(v.begin(),v.end());
+        int op=0;
+        if(v[2]%v[0]==0 && v[1]%v[0]==0){
+            op+=(v[2]/v[0])-1;
+            op+=(v[1]/v[0])-1;
+        }else{
+            cout<<"NO"<<endl;
+            continue;
         }
+        if(op<=3){ 
+            cout<<"YES"<<endl;
+            continue;
+        }
+        cout<<"NO"<<endl;
     }
 
     return 0;
