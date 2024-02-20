@@ -1,39 +1,30 @@
-#include <iostream>
-
-int digitSum(int num) {
-    int sum = 0;
-    while (num > 0) {
-        sum += num % 10;
-        num /= 10;
-    }
-    return sum;
-}
-
-int main() {
-    int t;
-    std::cin >> t;
-
-    while (t--) {
-        int n;
-        std::cin >> n;
-
-        int result = 0;
-
-        // Calculate the sum of digits for each number from 1 to 9
-        for (int i = 1; i <= 9; ++i) {
-            result += digitSum(i);
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+ 
+int main(){
+    ll v[200001] = {0};
+    ll sum =0 ;
+    for (ll i = 0; i <= 2e5; i++){
+        ll val1 = 0;
+        ll value2 = i;
+        while (value2 != 0)
+        {
+            val1 += value2%10;
+            value2 /= 10;
         }
-
-        // Repeat the sum for every multiple of 9
-        result *= (n / 9);
-
-        // Calculate the remaining sum for the last set of numbers
-        for (int i = 1; i <= n % 9; ++i) {
-            result += digitSum(i);
-        }
-
-        std::cout << result << std::endl;
+        sum += val1;
+        v[i] = sum;
+        
     }
-
-    return 0;
+    
+    ll t;
+    cin >> t;
+ 
+    while (t--){
+        ll n;
+        cin >> n;
+        cout << v[n] << endl;
+    }
+    
 }
