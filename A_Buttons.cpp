@@ -20,32 +20,22 @@ template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
 void solve() {
-    ll n,k,x;
-    cin>>n>>k>>x;
-    vi v;
-    for(int i=k; i>=1; i--){
-      if(i!=x){
-        while(n>=i){
-          n-=i;
-          v.push_back(i);
+    ll a,b,c;
+    cin>>a>>b>>c;
+    ll sum = a+b+c;
+    if(a==b){
+        if(c%2==0){
+            cout<<"Second"<<endl;
+            return;
+        }else {
+            cout<<"First"<<endl;
+            return;
         }
-      }
-    }
-    if(n!=x && n<=k && n!=0){
-      ll q=n;
-      n-=n;
-      v.push_back(q);
-    }
-    if(n==0){
-      cout<<"YES"<<endl;
-      cout<<v.size()<<endl;
-      rep(i,0,v.size()-1){
-        cout<<v[i]<<" ";
-      }
-      cout<<endl;
     }else{
-      cout<<"NO"<<endl;
+        if(b>a){ cout<<"Second"<<endl; return;}
+        else {cout<<"First"<<endl;return;}
     }
+
 }
 
 signed main() {
