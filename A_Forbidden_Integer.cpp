@@ -12,7 +12,7 @@ typedef pair<int,int> pi;
 #define pf     push_front
 #define pof    pop_front
 
-#define rep(i,a,b) for (int i = a; i <= b; i++)
+#define rep(i,a,b) for (ll i = a; i <= b; i++)
 // for (int i = 1; i <= n; i++) { }
 //rep(i,1,n) { }
 
@@ -23,30 +23,44 @@ void solve() {
     ll n,k,x;
     cin>>n>>k>>x;
     vi v;
-    for(int i=k; i>=1; i--){
-      if(i!=x){
-        while(n>=i){
-          n-=i;
-          v.push_back(i);
-        }
-      }
+    if(k==1){
+      cout<<"NO"<<endl;
+      return;
     }
-    if(n!=x && n<=k && n!=0){
-      ll q=n;
-      n-=n;
-      v.push_back(q);
-    }
-    if(n==0){
+    if(x!=1){
       cout<<"YES"<<endl;
-      cout<<v.size()<<endl;
-      rep(i,0,v.size()-1){
-        cout<<v[i]<<" ";
+      cout<<n<<endl;
+      rep(i,0,n-1){
+        cout<<"1 ";
+      }
+        cout<<endl;
+        return;
+      
+    }
+    if(n%2 && k==2){
+      cout<<"NO"<<endl;
+      return;
+    }
+    if(n%2==0){
+      cout<<"YES"<<endl;
+      cout<<(n/2)<<endl;
+      rep(i,0,(n/2) -1){
+         cout<<"2 ";
       }
       cout<<endl;
-    }else{
-      cout<<"NO"<<endl;
+      return;
     }
-}
+    ll total=(n/2);
+    cout<<"YES"<<endl;
+    cout<<total<<endl;
+    for(ll i=0; i<(n/2-1); i++)
+      cout<<"2 ";
+      
+      cout<<"3 ";
+      cout<<endl;
+    
+  
+}  
 
 signed main() {
     ios_base::sync_with_stdio(false);
