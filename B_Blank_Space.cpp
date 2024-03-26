@@ -23,22 +23,24 @@ void solve() {
     ll n;
     cin>>n;
     vi v(n);
+    rep(i,0,n-1){
+        cin>>v[i];
+    }
+    ll maxi=0;
     ll cnt=0;
     rep(i,0,n-1){
-        ll x;
-        cin>>x;
-        if(x==1) cnt++;
+        if(v[i]==0){
+            cnt++;
+        }else{
+            maxi=max(maxi,cnt);
+            cnt=0;
+        }
     }
-    ll val=0;
-    ll cntn = n-cnt;
-    while(cntn>cnt){
-        cntn--;
-        cnt++;
-        val++;
+    if(maxi<cnt){
+        cout<<cnt<<endl;
+    }else{
+        cout<<maxi<<endl;
     }
-    if(cntn%2!=0) val++;
-    
-    cout<<val<<endl;
 }
 
 signed main() {
