@@ -20,45 +20,37 @@ template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
 void solve() {
-    ll n;
-    cin>>n;
-    vi v(n);
-    rep(i,0,n-1){
-        cin>>v[i];
-    }
-    ll cnt=0;
-    if(v[0]>v[n-1]){
-        cout<<-1<<endl;
-        return;
-    }
-    if(n==1){
-        cout<<0<<endl;
-        return;
-    }
-    for(int i=0; i<n-1; i++){
-        //cout<<"v[i-1]"<<v[i-1]<<endl;
-        while(v[i]>=v[i+1]){
-            if(v[i]==0){
-                break;
-            }
-             v[i]/=2;
-             cnt++;
-        }
-       
-    }
-    ll ans=0;
-    rep(i,0,n-2){
-        if(v[i]>=v[i+1]){
-            ans=1;
-            break;
-        }    
-    }
-    if(ans){
-        cout<<-1<<endl;
+    string s;
+    cin>>s;
+    string p="";
+    p+=s[0];
+    p+=s[1];
+    int val=stoi(p);
+    string k="";
+    k+=s[3];
+    k+=s[4];
+    string g;
+    int ans;
+    if(val==0){
+      ans=12;
+      g="AM";
+    }else if(val>12){
+       g="PM";
+       ans=(val-12);
+    }else if(val==12){
+       g="PM";
+       ans=val;
     }else{
-        cout<<cnt<<endl;
+        g="AM";
+        ans=val;
     }
-    
+    string q=to_string(ans);
+    if(q.size()!=2){
+        q='0'+q;
+    }
+    string res=q+":"+k+" "+g;
+    cout<<res<<endl;
+
 }
 
 signed main() {

@@ -22,43 +22,29 @@ template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 void solve() {
     ll n;
     cin>>n;
-    vi v(n);
     rep(i,0,n-1){
-        cin>>v[i];
-    }
-    ll cnt=0;
-    if(v[0]>v[n-1]){
-        cout<<-1<<endl;
-        return;
-    }
-    if(n==1){
-        cout<<0<<endl;
-        return;
-    }
-    for(int i=0; i<n-1; i++){
-        //cout<<"v[i-1]"<<v[i-1]<<endl;
-        while(v[i]>=v[i+1]){
-            if(v[i]==0){
-                break;
+       ll q=2;
+       char sec='.';
+       char fir='#';
+       if(i&1){
+        sec='#';
+        fir='.';
+       }
+       while(q--){
+        rep(j,0,n-1){
+            ll k=2;
+            while(k--){
+                if(!(j&1)){
+                    cout<<fir;
+                }else{
+                    cout<<sec;
+                }
             }
-             v[i]/=2;
-             cnt++;
         }
-       
+        cout<<endl;
+       }
     }
-    ll ans=0;
-    rep(i,0,n-2){
-        if(v[i]>=v[i+1]){
-            ans=1;
-            break;
-        }    
-    }
-    if(ans){
-        cout<<-1<<endl;
-    }else{
-        cout<<cnt<<endl;
-    }
-    
+
 }
 
 signed main() {

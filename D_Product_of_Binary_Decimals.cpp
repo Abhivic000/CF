@@ -19,46 +19,36 @@ typedef pair<int,int> pi;
 template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
-void solve() {
-    ll n;
-    cin>>n;
-    vi v(n);
-    rep(i,0,n-1){
-        cin>>v[i];
-    }
-    ll cnt=0;
-    if(v[0]>v[n-1]){
-        cout<<-1<<endl;
-        return;
-    }
-    if(n==1){
-        cout<<0<<endl;
-        return;
-    }
-    for(int i=0; i<n-1; i++){
-        //cout<<"v[i-1]"<<v[i-1]<<endl;
-        while(v[i]>=v[i+1]){
-            if(v[i]==0){
-                break;
-            }
-             v[i]/=2;
-             cnt++;
+bool check(int n){
+    while(n>0){
+        int val=n%10;
+        if(val==1 || val==0){
+            n=n/10;
+            continue;
         }
-       
+        return false;
     }
-    ll ans=0;
-    rep(i,0,n-2){
-        if(v[i]>=v[i+1]){
-            ans=1;
-            break;
-        }    
+    return true;
+}
+
+void solve(){
+    vector<int>v;
+    for(int i=1;i<=1e5;i++){
+        if(check(i)){
+            v.push_back(i);
+        }
     }
-    if(ans){
-        cout<<-1<<endl;
-    }else{
-        cout<<cnt<<endl;
+    int n;
+    cin>>n;
+    int cnt=v.size()-1;
+    while(n>0 && cnt>=0){
+        if(v[cnt]!=1 && n%v[cnt]==0){
+            n=n/v[cnt];
+            continue;
+        }
+        cnt--;
     }
-    
+    cout<<(n > 1 ? "NO" : "YES")<<endl;
 }
 
 signed main() {

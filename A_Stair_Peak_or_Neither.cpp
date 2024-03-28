@@ -20,45 +20,16 @@ template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
 void solve() {
-    ll n;
-    cin>>n;
-    vi v(n);
-    rep(i,0,n-1){
-        cin>>v[i];
-    }
-    ll cnt=0;
-    if(v[0]>v[n-1]){
-        cout<<-1<<endl;
-        return;
-    }
-    if(n==1){
-        cout<<0<<endl;
-        return;
-    }
-    for(int i=0; i<n-1; i++){
-        //cout<<"v[i-1]"<<v[i-1]<<endl;
-        while(v[i]>=v[i+1]){
-            if(v[i]==0){
-                break;
-            }
-             v[i]/=2;
-             cnt++;
-        }
-       
-    }
-    ll ans=0;
-    rep(i,0,n-2){
-        if(v[i]>=v[i+1]){
-            ans=1;
-            break;
-        }    
-    }
-    if(ans){
-        cout<<-1<<endl;
+    // Code here abhivic
+    ll a,b,c;
+    cin>>a>>b>>c;
+    if(a<b && b<c){
+      cout<<"STAIR"<<endl;
+    }else if(a<b && b>c){
+        cout<<"PEAK"<<endl;
     }else{
-        cout<<cnt<<endl;
+        cout<<"NONE"<<endl;
     }
-    
 }
 
 signed main() {
