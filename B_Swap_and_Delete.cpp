@@ -1,39 +1,44 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
-int main() {
-    int t;
-    cin >> t;
+typedef vector<int> vi;
+typedef pair<int,int> pi;
 
-    while (t--) {
-        string s;
-        cin >> s;
+#define fr     first
+#define sc     second
+#define pb     push_back
+#define pob    pop_back
+#define pf     push_front
+#define pof    pop_front
 
-        int n = s.length();
-        int count0 = count(s.begin(), s.end(), '0');
-        int count1 = count(s.begin(), s.end(), '1');
+#define rep(i,a,b) for (int i = a; i <= b; i++)
+// for (int i = 1; i <= n; i++) { }
+//rep(i,1,n) { }
 
-        if (count0 == count1) {
-            cout << 0 << endl;
-        } else {
-            int cost = 0;
-            
-            for (int i = 0; i < n; ++i) {
-                if (s[i] == '0' && s[(i+1)%n] == '1') {
-                    
-                    cost += 0; 
-                } else if (s[i] == '1' && s[(i+1)%n] == '0') {
-                    
-                    cost += 0; 
-                } else {
-                   
-                    cost += 1; 
-                }
-            }
+template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
+template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
-            cout << cost << endl;
-        }
+void solve() {
+    string s;
+    cin>>s;
+    ll cnt0=count(begin(s),end(s),'0');
+    ll cnt1=s.size()-cnt0;
+    rep(i,0,s.size()-1){
+        if(s[i]=='0' && cnt1>0) cnt1--;
+        else if(s[i]=='1' && cnt0>0) cnt0--;
+        else break;
     }
+    cout<<cnt0+cnt1<<endl;
 
+}
+
+signed main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0); cout.tie(0);
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
     return 0;
+    
 }
