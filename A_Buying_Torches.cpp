@@ -20,27 +20,9 @@ template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
 void solve() {
-    ll n;
-    cin>>n;
-    vi v(n);
-    ll maxi=INT_MIN;
-    rep(i,0,n-1){
-        cin>>v[i];
-    }
-    //ll min1=*min_element(v.begin(),v.end());
-    //ll max1=*max_element(v.begin(),v.end());
-    //maxi=max(maxi,max1-min1);
-
-    rep(i,0,n-1){
-        maxi=max(maxi,(ll)(v[(i-1+n)%n]-v[i]));
-    }
-    rep(i,1,n-1){
-        maxi=max(maxi,(ll)(v[i]-v[0]));
-    }
-    rep(i,0,n-2){
-        maxi=max(maxi,(ll)(v[n-1]-v[i]));
-    }
-    cout<<maxi<<endl;
+    ll x,y,z;
+    cin>>x>>y>>z;
+    
 }
 
 signed main() {

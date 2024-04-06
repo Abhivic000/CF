@@ -23,24 +23,20 @@ void solve() {
     ll n;
     cin>>n;
     vi v(n);
-    ll maxi=INT_MIN;
     rep(i,0,n-1){
         cin>>v[i];
     }
-    //ll min1=*min_element(v.begin(),v.end());
-    //ll max1=*max_element(v.begin(),v.end());
-    //maxi=max(maxi,max1-min1);
-
+    map<int,int>mp;
     rep(i,0,n-1){
-        maxi=max(maxi,(ll)(v[(i-1+n)%n]-v[i]));
+        mp[v[i]]++;
     }
-    rep(i,1,n-1){
-        maxi=max(maxi,(ll)(v[i]-v[0]));
+    for(auto x:mp){
+        if(x.second>=2){
+            cout<<"YES"<<endl;
+            return;
+        }
     }
-    rep(i,0,n-2){
-        maxi=max(maxi,(ll)(v[n-1]-v[i]));
-    }
-    cout<<maxi<<endl;
+    cout<<"NO"<<endl;
 }
 
 signed main() {
