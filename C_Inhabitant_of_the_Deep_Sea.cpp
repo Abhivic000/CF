@@ -26,25 +26,33 @@ void solve() {
     rep(i,0,a-1){
         cin>>v[i];
     }
+    ll b1= b/2 + b%2;
+    ll b2=(b/2);
     ll l=0,r=a-1;
-    while(b>0 && l<=r){
-        if(v[l]!=0){
-            v[l]--;
-            b--;
+    ll sink=0;
+    while(b1>0 && l<=r){
+        if(v[l]<=b1){
+            b1-=v[l];
+            sink++;
+            v[l]=0;
+            l++;
+        }else{
+            v[l]-=b1;
+            b1=0;
         }
-        if(b==0 || l>r) break;
-        if(v[r]!=0){
-            v[r]--;
-            b--;
+    }
+    while(b2>0 && l<=r){
+        if(v[r]<=b2){
+            b2-=v[r];
+            sink++;
+            v[r]=0;
+            r--;
+        }else{
+            v[r]-=b2;
+            b2=0;
         }
-        if(v[l]==0) l++; 
-        if(v[r]==0) r--;
     }
-    ll valu=0;
-    rep(i,0,a-1){
-        if(v[i]>0) valu++;
-    }
-    cout<<a-valu<<endl;
+    cout<<sink<<endl;
 }
 
 
