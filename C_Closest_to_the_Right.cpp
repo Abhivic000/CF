@@ -25,7 +25,7 @@ int main(){
     while(q--){
         ll x;
         cin>>x;
-        int low=0, high = n-1;
+        int low=1, high = n;
         int ans=n;
     while(low<=high){
         int mid = (low+high)/2;
