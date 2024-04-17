@@ -25,18 +25,16 @@ int main(){
     while(q--){
         ll x;
         cin>>x;
-        int low=1, high = n;
-        int ans=n;
-    while(low<=high){
-        int mid = (low+high)/2;
-        if(v[mid]>x){
-            ans=mid;
-            high=mid-1;
+        int l=-1, r = n;
+    while(r>l+1){
+        int mid = (l+r)/2;
+        if(v[mid]<x){
+            l=mid;
         }else{
-            low=mid+1;
+            r=mid;
         }
     }
-    cout<<ans<<endl;
+    cout<<r+1<<endl;
     }
      
     return 0;
