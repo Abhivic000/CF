@@ -19,27 +19,37 @@ typedef pair<int,int> pi;
 template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
-void solve() {
-   ll n,m;
-   cin>>n>>m;
-   vi v(n),k(m+1);
-   rep(i,0,n-1){
-      cin>>v[i];
-   }
-   rep(i,0,n-1){
-      k[v[i]%m]++;
-   }
-   ll cnt=0;
-   cnt+=v[0];
+bool isPowerOfTwo(ll n){
+    return (n & (n - 1)) == 0;
+}
 
+string counterGame(ll n){
+    int mo = 0;
+    while (n != 1) {
+        if (isPowerOfTwo(n)){
+            n /= 2;
+        } else {
+            ll lpt = pow(2, floor(log2(n)));
+            n -= lpt;
+        }
+        mo++;
+    }
+    return (mo % 2 == 1) ? "Louise" : "Richard";
+}
+
+void solve(){
+    int t;
+    cin >> t;
+    while (t--) {
+        ll n;
+        cin >> n;
+        cout << counterGame(n) << endl;
+    }
 }
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
-    int t = 1;
-    cin >> t;
-    while (t--) solve();
+    solve();
     return 0;
-    
 }

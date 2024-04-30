@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 
@@ -19,19 +19,26 @@ typedef pair<int,int> pi;
 template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
-void solve() {
-   ll n,m;
-   cin>>n>>m;
-   vi v(n),k(m+1);
-   rep(i,0,n-1){
-      cin>>v[i];
-   }
-   rep(i,0,n-1){
-      k[v[i]%m]++;
-   }
-   ll cnt=0;
-   cnt+=v[0];
+int sum(string p,string s){
+    int cnt=0;
+    for(int i=0; i<p.size(); i++){
+        if(p[i]==s[i]){
+            cnt++;
+        } else {
+            break;
+        }
+    }
+    return cnt;
+}
 
+void solve() {
+    string s;
+    cin>>s;
+    int f=0;
+    for(int i=0; i<s.size(); i++){
+        f += sum(s,s.substr(i));
+    }
+    cout<<f<<endl;
 }
 
 signed main() {
@@ -41,5 +48,4 @@ signed main() {
     cin >> t;
     while (t--) solve();
     return 0;
-    
 }
