@@ -35,9 +35,10 @@ void solve() {
     sort(r.begin(),r.end());
     ll sz=r.size();
     for(int i=0; i<n; i++){
-
+        size_t x = r.find(s[i]);
+        s[i]=r[abs(x-sz)-1];
     }
-    cout<<r<<endl;
+    cout<<s<<endl;
 }
 
 signed main() {
