@@ -22,8 +22,26 @@ template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 void solve() {
     ll n;
     cin>>n;
-    vector<vector<ll>>v;
-
+    char v[n][n];
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            cin>>v[i][j];
+        }
+    }
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+          int cnt=0;
+          if(j>0 && (v[i][j-1]=='o')) cnt++;
+          if(j<n-1 && (v[i][j+1]=='o')) cnt++;
+          if(i>0 && (v[i-1][j]=='o')) cnt++;
+          if(i<n-1 && (v[i+1][j]=='o')) cnt++;
+          if(cnt%2!=0){
+            cout<<"NO"<<endl;
+            return;
+          }
+        }
+    }
+    cout<<"YES"<<endl;
 }
 
 signed main() {
