@@ -14,18 +14,24 @@ typedef pair<int,int> pi;
 
 #define rep(i,a,b) for (int i = a; i <= b; i++)
 // for (int i = 1; i <= n; i++) { }
-//rep(i,1,n) { }
+// rep(i,1,n) { }
 
 template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
 void solve() {
-    ll a,b,k;
-    cin>>a>>b>>k;
-    ll mv=b-a+1;
-    ll i=1;
-    while(i<=j){
-        
+    ll n;
+    cin>>n;
+    if(n%2==0){
+        cout<<-1<<endl;
+    }else{
+        rep(i,1,n/2){
+            cout<<i<<" ";
+        }
+        for(int i=n; i>n/2; i--){
+            cout<<i<<" ";
+        }
+        cout<<endl;
     }
 }
 
@@ -33,8 +39,7 @@ signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--) solve();
     return 0;
-    
 }

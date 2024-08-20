@@ -20,20 +20,19 @@ template<typename T, typename T1>T amax(T &a, T1 b) {if (b > a)a = b; return a;}
 template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 
 void solve() {
-    ll a,b,k;
-    cin>>a>>b>>k;
-    ll mv=b-a+1;
-    ll i=1;
-    while(i<=j){
-        
-    }
-}
+    ll l,m,n,o;
+    cin>>l>>m>>n>>o;
+    if(l==n && m==o){
+        cout<<n-l<<endl;
+        return;
+    }else if()
+}  //  2 4 5 8  // 2 3 4 5 6 7 8
 
 signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--) solve();
     return 0;
     
