@@ -22,11 +22,21 @@ template<typename T, typename T1>T amin(T &a, T1 b) {if (b < a)a = b; return a;}
 void solve() {
     ll l,m,n,o;
     cin>>l>>m>>n>>o;
-    if(l==n && m==o){
-        cout<<n-l<<endl;
-        return;
-    }else if()
-}  //  2 4 5 8  // 2 3 4 5 6 7 8
+    ll dif1=m-l;
+    ll dif2=o-n;
+    if(l>o || n>m){
+        cout<<1<<endl;
+    }else if((l<n && m>o) || (n<l && o>m)){
+        cout<< min(dif1,dif2)+2<<endl;
+    }else if((l!=n && m==o) || (l==n && m!=o)){
+        cout<< min(dif1,dif2)+1<<endl;
+    }else if(l==n && m==o){
+        cout<<dif1<<endl;
+    }else{
+        cout<<min(abs(l-o),abs(m-n))+2<<endl;
+    }
+
+} 
 
 signed main() {
     ios_base::sync_with_stdio(false);
