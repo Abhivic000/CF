@@ -24,31 +24,17 @@ void solve() {
     cin>>n;
     string s;
     cin>>s;
-    map<char,int>mp;
-    for(auto x:s){
-        mp[x]++;
+    sort(begin(s),end(s));
+    ll i=0,j=n-1;
+    string p;
+    while(i<j){
+       p+=s[i];
+       p+=s[j];
+       i++;
+       j--;
     }
-    if(mp.size()<3){
-        cout<<s<<endl;
-        return;
-    }
-    vector<pair<int,char>>p;
-    for(auto x:mp){
-        p.push_back({x.second,x.first});
-    }
-    sort(begin(p),end(p));
-    string ss="";
-    ll j=0,i=0;
-    while(i<n){
-        if(j==p.size()) j=0;
-        if(p[j].first>0){
-            ss+=p[j].second;
-            p[j].first--;
-            i++;
-        }
-        j++;
-    }
-    cout<<ss<<endl;
+    if(i==j) p+=s[i];
+    cout<<p<<endl;
 }
 
 signed main() {
